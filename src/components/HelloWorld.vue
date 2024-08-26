@@ -89,7 +89,9 @@ initProductRequirementList()
 
         <div v-else-if="curReqIndex < computedProductRequirementList.length" class="req_item">
             <p class="title">{{ computedCurReq.title }}</p>
-            <p class="desc">{{ computedCurReq.desc }}</p>
+            <p class="desc">{{ computedCurReq.desc }}
+                <a v-if="computedCurReq.ref" target="_blank" :href="computedCurReq.ref">链接</a>
+            </p>
             <form>
                 <label>
                     <input :checked="computedCurReq.checked" type="radio" @change="computedCurReq.checked = true"/>
@@ -212,6 +214,7 @@ button:active {
 }
 
 .req_item .desc {
+    margin-top: 10px;
     font-size: 1.0rem;
 }
 
@@ -253,6 +256,7 @@ button:active {
 }
 
 .checked_req_item .desc {
+    margin-top: 10px;
     font-size: 1.0rem;
 }
 
