@@ -75,25 +75,6 @@ const computedCommercialProductList = computed(() => {
     return [...map.values()];
 })
 
-const nextButtonEnable = computed(() => {
-    let curReq = computedCurReq.value
-    console.log('xxxxxxxx')
-    if (curReq.id === 'linux') {
-        if (!curReq.checked) {
-            return true;
-        } else {
-            for (const arch of curReq.arch) {
-                if (arch.checked) {
-                    return true
-                }
-            }
-            return false;
-        }
-    } else {
-        return true;
-    }
-})
-
 initProductRequirementList()
 
 </script>
@@ -119,7 +100,7 @@ initProductRequirementList()
                     <p>请选择需要支持的 CPU 架构</p>
                     <div v-for="(arch) in computedCurReq.archList" :key="arch.name">
                         <label>
-                            <input :checked="arch.checked" type="checkbox" @change="console.log('xxx', $event);arch.checked = $event.target.checked"/>
+                            <input :checked="arch.checked" type="checkbox" @change="arch.checked = $event.target.checked"/>
                             {{ arch.name }}
                         </label>
                     </div>
@@ -199,7 +180,10 @@ button:active {
 }
 
 .intro {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .intro .title {
@@ -211,7 +195,7 @@ button:active {
 }
 
 .intro button {
-    margin-top: 100px;
+    margin-top: 200px;
     width: 120px;
     height: 50px;
     border: none;

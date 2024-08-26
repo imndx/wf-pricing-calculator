@@ -22,7 +22,7 @@ export const product_requirement_list = [
         category: 'platform',
         name: 'Web端',
         title: '是否需要支持 Web 端？',
-        desc: '支持 PC 浏览器和手机浏览器',
+        desc: '支持 PC 浏览器、手机浏览器和微信浏览器',
         checked: false,
         dependencies: [1, 3],
     },
