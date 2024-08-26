@@ -146,25 +146,10 @@ initProductRequirementList()
 </template>
 
 <style scoped>
-h1 {
-    font-weight: 500;
-    font-size: 2.6rem;
-    position: relative;
-    top: -10px;
-}
-
-h3 {
-    font-size: 1.2rem;
-}
 
 .greetings {
-    width: 480px;
-    height: 720px;
-}
-
-.greetings h1,
-.greetings h3 {
-    text-align: center;
+    width: 100%;
+    height: 100%;
 }
 
 button:active {
@@ -245,7 +230,7 @@ button:active {
     font-size: 1.0rem;
 }
 
-.report{
+.report {
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -266,11 +251,10 @@ button:active {
 }
 
 
-
 @media (min-width: 1024px) {
-    .greetings h1,
-    .greetings h3 {
-        text-align: left;
+    .greetings {
+        width: 100%;
+        height: 100%;
     }
 }
 </style>

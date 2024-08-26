@@ -33,7 +33,7 @@ export const product_requirement_list = [
         title: '是否需要支持微信小程序？',
         desc: '',
         checked: false,
-        dependencies: [1, 3],
+        dependencies: [1, 4],
     },
     {
         id: 'windows',
