@@ -127,7 +127,7 @@ initProductRequirementList()
                 <div style="flex: 1">
                     <p class="title">你的产品需求如下，请确认</p>
                     <div v-for="(req, index) in checkedProductRequirementList" :key="index">
-                        <p v-if="req.id !== 'linux'" class="desc">{{ req.name }}</p>
+                        <p v-if="req.id !== 'linux'">{{ req.name }}</p>
                         <div v-else-if="req.id === 'linux'">
                             <p v-for="(arch) in req.archList.filter(a => a.checked)" :key="arch.name">{{ `Linux 客户端(${arch.name})` }}</p>
                         </div>
