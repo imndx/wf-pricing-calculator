@@ -97,7 +97,7 @@ export const product_requirement_list = [
         name: '高级版音视频',
         category: 'feature',
         title: '是否需要使用高级版音视频功能？',
-        desc: '提供免费版和高级版音视频功能，具体区别，请参考：https://docs.wildfirechat.cn/blogs/%E9%87%8E%E7%81%AB%E9%9F%B3%E8%A7%86%E9%A2%91%E7%AE%80%E4%BB%8B.html',
+        desc: '高级版音视频比免费版功能更强大，具体区别请参考：https://docs.wildfirechat.cn/blogs/%E9%87%8E%E7%81%AB%E9%9F%B3%E8%A7%86%E9%A2%91%E7%AE%80%E4%BB%8B.html',
         checked: false,
         dependencies: [1, 9],
     },

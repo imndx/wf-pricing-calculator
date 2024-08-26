@@ -140,24 +140,21 @@ initProductRequirementList()
                     </button>
                 </div>
             </div>
-            <div v-else>
+            <div v-else class="params-invalid-container">
                 <p class="title">需求不合法</p>
-                <div>
-                    <button @click="initProductRequirementList">
-                        重置
-                    </button>
-                </div>
+                <button @click="initProductRequirementList">
+                    重置
+                </button>
             </div>
 
         </div>
         <div v-else class="report">
             <div style="flex: 1">
                 <p class="title">你的产品需求对应的费用详情如下，请参考</p>
-                <p>费用详情：</p>
                 <div v-for="(cp, index) in computedCommercialProductList" :key="index">
-                    <p>{{ cp.name + ' ' + cp.price }}</p>
+                    <p>{{ cp.name + ': ' + cp.price + '.00' }}</p>
                 </div>
-                <p>{{ '合计：' + computedCommercialProductList.map(p => p.price).reduce((pre, cur, index) => pre + cur, 0) }}</p>
+                <p>{{ '合计：' + computedCommercialProductList.map(p => p.price).reduce((pre, cur, index) => pre + cur, 0) + '.00' }}</p>
             </div>
             <div class="action-container">
                 <button @click="initProductRequirementList">
@@ -265,6 +262,24 @@ button:active {
     height: 100%;
 }
 
+.report .title {
+    font-size: 1.5rem;
+}
+
+.params-invalid-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.params-invalid-container button {
+    justify-self: flex-end;
+    margin-top: 200px;
+}
+
 .action-container {
     justify-self: flex-end;
     display: flex;
@@ -272,9 +287,9 @@ button:active {
     justify-content: space-around;
 }
 
-.action-container button {
+button {
     width: 120px;
-    height: 40px;
+    height: 50px;
     border: none;
     border-radius: 4px;
 }
