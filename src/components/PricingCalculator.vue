@@ -156,7 +156,8 @@ initProductRequirementList()
                 <div v-for="(cp, index) in computedCommercialProductList" :key="index">
                     <p>{{ cp.name + ': ' + cp.price + '.00' }}</p>
                 </div>
-                <p>{{ '合计：' + computedCommercialProductList.map(p => p.price).reduce((pre, cur, index) => pre + cur, 0) + '.00' }}</p>
+                <p></p>
+                <p style="padding-top: 10px">{{ '合计：' + computedCommercialProductList.map(p => p.price).reduce((pre, cur, index) => pre + cur, 0) + '.00' }}</p>
             </div>
             <div class="action-container">
                 <button @click="initProductRequirementList">
@@ -268,6 +269,7 @@ button:active {
 
 .report .title {
     font-size: 1.5rem;
+    padding-bottom: 10px;
 }
 
 .params-invalid-container {
