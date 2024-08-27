@@ -153,11 +153,18 @@ initProductRequirementList()
         <div v-else class="report">
             <div style="flex: 1">
                 <p class="title">你的产品需求对应的费用详情如下，请参考</p>
+                <p style="padding-bottom: 10px; margin-top: -5px">注：单位为元</p>
                 <div v-for="(cp, index) in computedCommercialProductList" :key="index">
-                    <p>{{ cp.name + ': ' + cp.price + '.00' }}</p>
+                    <div style="display: flex">
+                        <p style="flex: 1">{{ cp.name + ': ' }}</p>
+                        <p>{{ cp.price + '.00' }}</p>
+                    </div>
                 </div>
                 <p></p>
-                <p style="padding-top: 10px">{{ '合计：' + computedCommercialProductList.map(p => p.price).reduce((pre, cur, index) => pre + cur, 0) + '.00' }}</p>
+                <div style="padding-top: 10px; display: flex; font-size: 1.2rem">
+                    <p style="flex: 1">{{ '合计：' }}</p>
+                    <p >{{ computedCommercialProductList.map(p => p.price).reduce((pre, cur, index) => pre + cur, 0) + '.00' }}</p>
+                </div>
             </div>
             <div class="action-container">
                 <button @click="initProductRequirementList">
