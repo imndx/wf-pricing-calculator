@@ -125,7 +125,7 @@ initProductRequirementList()
         <div v-else-if="curReqIndex === computedProductRequirementList.length" style="height: 100%">
             <div v-if="checkedProductRequirementList.length > 0" class="checked_req_item">
                 <div style="flex: 1">
-                    <p class="title">你的产品需求如下，请确认</p>
+                    <p class="title" style="padding-bottom: 10px">你的产品需求如下，请确认</p>
                     <div v-for="(req, index) in checkedProductRequirementList" :key="index">
                         <p v-if="req.id !== 'linux'">{{ req.name }}</p>
                         <div v-else-if="req.id === 'linux'">
@@ -153,17 +153,22 @@ initProductRequirementList()
         <div v-else class="report">
             <div style="flex: 1">
                 <p class="title">你的产品需求对应的费用详情如下，请参考</p>
-                <p style="padding-bottom: 10px; margin-top: -5px">单位：元</p>
-                <div v-for="(cp, index) in computedCommercialProductList" :key="index">
-                    <div style="display: flex">
-                        <p style="flex: 1">{{ cp.name + ': ' }}</p>
-                        <p>{{ cp.price + '.00' }}</p>
+                <div v-if="computedCommercialProductList.length > 0">
+                    <p style="padding-bottom: 10px; margin-top: -5px">单位：元</p>
+                    <div v-for="(cp, index) in computedCommercialProductList" :key="index">
+                        <div style="display: flex">
+                            <p style="flex: 1">{{ cp.name + ': ' }}</p>
+                            <p>{{ cp.price + '.00' }}</p>
+                        </div>
+                    </div>
+                    <p></p>
+                    <div style="padding-top: 10px; display: flex; font-size: 1.2rem">
+                        <p style="flex: 1">{{ '合计：' }}</p>
+                        <p>{{ computedCommercialProductList.map(p => p.price).reduce((pre, cur, index) => pre + cur, 0) + '.00' }}</p>
                     </div>
                 </div>
-                <p></p>
-                <div style="padding-top: 10px; display: flex; font-size: 1.2rem">
-                    <p style="flex: 1">{{ '合计：' }}</p>
-                    <p >{{ computedCommercialProductList.map(p => p.price).reduce((pre, cur, index) => pre + cur, 0) + '.00' }}</p>
+                <div v-else>
+                    未涉及需要付费的组件，开源免费的项目，已能满足需求
                 </div>
             </div>
             <div class="action-container">
