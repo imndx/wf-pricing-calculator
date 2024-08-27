@@ -32,10 +32,10 @@ const computedProductRequirementList = computed(() => {
                 || pr.id.startsWith('wx')
                 || pr.id.startsWith('moment')
                 || pr.id.startsWith('ptt')
-                || pr.id.startsWith('conference'))
+                || pr.id.startsWith('conference_voip'))
     })
     if (reqListDependOnCommercialIMServer.length > 0) {
-        filteredList = filteredList.filter(pr => pr.id !== 'imserver');
+        filteredList = filteredList.filter(pr => pr.id !== 'commercial_imserver');
     }
 
     return filteredList;
@@ -49,7 +49,35 @@ const computedCurReq = computed(() => {
     }
 })
 
-const checkedProductRequirementList = computed(() => productRequirementList.value.filter(req => req.checked === true))
+const checkedProductRequirementList = computed(() => {
+    let list = productRequirementList.value.filter(req => req.checked === true)
+    if (list.findIndex(p => ['commercial_imserver', 'web', 'wx', 'moment', 'ptt', 'conference_voip'].indexOf(p.id)) === -1) {
+        // 社区版 im-server
+        list.push({
+                id: 'community_imserver',
+                name: '社区版 IM 服务',
+                dependencies: [],
+            }
+        )
+    } else {
+        list.push({
+                id: 'commercial_imserver',
+                name: '专业版 IM 服务',
+                dependencies: [],
+            }
+        )
+    }
+    if (list.findIndex(p => p.id === 'conference_voip') === -1) {
+        // 多人版音视频
+        list.push({
+                id: 'multi_voip',
+                name: '多人版音视频',
+                dependencies: [],
+            }
+        )
+    }
+    return list;
+})
 
 
 const computedCommercialProductList = computed(() => {
@@ -72,7 +100,25 @@ const computedCommercialProductList = computed(() => {
             }
         }
     }
-    return [...map.values()];
+    let list = [...map.values()];
+    // 高级版音视频 SDK
+    if (!map.get(9)) {
+        list.splice(0, 0, {
+            name: '多人版音视频 SDK',
+            desc: '多人版音视频功能',
+            price: 0.00,
+        })
+    }
+    // 专业版im-server
+    if (!map.get(1)) {
+        list.splice(0, 0, {
+            name: '社区版 IM-Server',
+            desc: '社区版 IM 服务',
+            price: 0.00,
+        })
+    }
+    return list
+
 })
 
 initProductRequirementList()
@@ -153,24 +199,22 @@ initProductRequirementList()
         <div v-else class="report">
             <div style="flex: 1">
                 <p class="title">你的产品需求对应的费用详情如下，请参考</p>
-                <div v-if="computedCommercialProductList.length > 0">
-                    <p style="padding-bottom: 10px; margin-top: -5px">单位：元</p>
-                    <div v-for="(cp, index) in computedCommercialProductList" :key="index">
-                        <div style="display: flex">
-                            <p style="flex: 1">{{ cp.name + ': ' }}</p>
-                            <p>{{ cp.price + '.00' }}</p>
-                        </div>
-                    </div>
-                    <p></p>
-                    <div style="padding-top: 10px; display: flex; font-size: 1.2rem">
-                        <p style="flex: 1">{{ '合计：' }}</p>
-                        <p>{{ computedCommercialProductList.map(p => p.price).reduce((pre, cur, index) => pre + cur, 0) + '.00' }}</p>
+                <div v-for="(cp, index) in computedCommercialProductList" :key="index">
+                    <div style="display: flex">
+                        <p style="flex: 1">{{ cp.name + ': ' }}</p>
+                        <p>{{ cp.price + '.00' }}</p>
                     </div>
                 </div>
-                <div v-else>
-                    未涉及需要付费的组件，开源免费的项目，已能满足需求
+                <p></p>
+                <div style="padding-top: 10px; display: flex; font-size: 1.2rem">
+                    <p style="flex: 1">{{ '合计：' }}</p>
+                    <p>{{ computedCommercialProductList.map(p => p.price).reduce((pre, cur, index) => pre + cur, 0) + '.00' }}</p>
                 </div>
+                <p style="padding-top: 50px; text-align: center; font-size: 1.0rem; color: #3f64e4">
+                    野火IM 是行业内唯一能够提供长达半年试用服务的公司，快点击 <a style="color: red" target="_blank" href="https://docs.wildfirechat.cn/trial/">链接</a> 申请试用吧
+                </p>
             </div>
+
             <div class="action-container">
                 <button @click="initProductRequirementList">
                     确定

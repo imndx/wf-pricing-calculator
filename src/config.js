@@ -6,7 +6,7 @@ export const product_requirement_list = [
         title: '是否需要 Android 客户端？',
         desc: '可使用 Android 原生、Flutter 或 uniapp 开发。',
         checked: false,
-        dependencies: [],
+        dependencies: [12],
     },
     {
         id: 'ios',
@@ -15,7 +15,7 @@ export const product_requirement_list = [
         title: '是否需要 iOS 客户端？',
         desc: '可使用 iOS 原生、Flutter 或 uniapp 开发。',
         checked: false,
-        dependencies: [],
+        dependencies: [13],
     },
     {
         id: 'harmony',
@@ -102,7 +102,7 @@ export const product_requirement_list = [
         dependencies: [1, 10],
     },
     {
-        id: 'conference',
+        id: 'conference_voip',
         name: '高级版音视频',
         category: 'feature',
         title: '是否需要使用高级版音视频功能？',
@@ -112,7 +112,7 @@ export const product_requirement_list = [
         dependencies: [1, 9],
     },
     {
-        id: 'imserver',
+        id: 'commercial_imserver',
         name: '专业版 IM 服务',
         title: '是否需要使用专业版 IM 服务？',
         desc: 'IM 服务有两个版本：免费社区版和需要付费的专业版。专业版 IM 性能更好，功能更强大，具体区别请参考',
@@ -190,5 +190,28 @@ export const commercial_products = [
         desc: '支持鸿蒙 next',
         price: 10000.00,
     },
-
+    {
+        id: 12,
+        name: 'Android 客户端',
+        desc: 'Android 客户端，支持原生、Flutter 和 uniapp',
+        price: 0.00,
+    },
+    {
+        id: 13,
+        name: 'iOS 客户端',
+        desc: 'Android 客户端，支持原生、Flutter 和 uniapp',
+        price: 0.00,
+    },
+    {
+        id: 14,
+        name: '社区版 IM-Server',
+        desc: '社区版 IM 服务',
+        price: 0.00,
+    },
+    {
+        id: 15,
+        name: '多人版音视频 SDK',
+        desc: ' 支持多人音视频通话，不支持会议',
+        price: 0.00,
+    },
 ]
