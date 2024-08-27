@@ -211,7 +211,7 @@ initProductRequirementList()
                     <p>{{ computedCommercialProductList.map(p => p.price).reduce((pre, cur, index) => pre + cur, 0) + '.00' }}</p>
                 </div>
                 <p style="padding-top: 50px; text-align: center; font-size: 1.0rem; color: #3f64e4">
-                    野火IM 是行业内唯一能够提供长达半年试用服务的公司，快点击 <a style="color: red" target="_blank" href="https://docs.wildfirechat.cn/trial/">链接</a> 申请试用吧
+                    野火IM 提供行业内唯一长达半年的试用服务，快点击 <a style="color: red" target="_blank" href="https://docs.wildfirechat.cn/trial/">链接</a> 申请试用吧
                 </p>
             </div>
 
