@@ -153,7 +153,7 @@ initProductRequirementList()
         <div v-else class="report">
             <div style="flex: 1">
                 <p class="title">你的产品需求对应的费用详情如下，请参考</p>
-                <p style="padding-bottom: 10px; margin-top: -5px">注：单位为元</p>
+                <p style="padding-bottom: 10px; margin-top: -5px">单位：元</p>
                 <div v-for="(cp, index) in computedCommercialProductList" :key="index">
                     <div style="display: flex">
                         <p style="flex: 1">{{ cp.name + ': ' }}</p>
