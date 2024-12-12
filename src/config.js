@@ -186,8 +186,8 @@ export const commercial_products = [
     },
     {
         id: 11,
-        name: '鸿蒙next SDK',
-        desc: '支持鸿蒙 next',
+        name: '鸿蒙NEXT SDK',
+        desc: '支持鸿蒙 NEXT',
         price: 29000.00,
     },
     {
