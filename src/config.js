@@ -174,7 +174,7 @@ export const commercial_products = [
     },
     {
         id: 9,
-        name: '高级版音视频 SDK',
+        name: '高级版音视频',
         desc: '实现音视频通话，及音视频会议功能',
         price: 59000.00,
     },
@@ -210,7 +210,7 @@ export const commercial_products = [
     },
     {
         id: 15,
-        name: '多人版音视频 SDK',
+        name: '多人版音视频',
         desc: ' 支持多人音视频通话，不支持会议',
         price: 0.00,
     },

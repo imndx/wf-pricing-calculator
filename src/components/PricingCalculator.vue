@@ -101,10 +101,10 @@ const computedCommercialProductList = computed(() => {
         }
     }
     let list = [...map.values()];
-    // 高级版音视频 SDK
+    // 高级版音视频
     if (!map.get(9)) {
         list.splice(0, 0, {
-            name: '多人版音视频 SDK',
+            name: '多人版音视频',
             desc: '多人版音视频功能',
             price: 0.00,
         })
