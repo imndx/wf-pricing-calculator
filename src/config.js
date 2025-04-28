@@ -90,7 +90,7 @@ export const product_requirement_list = [
         title: '是否需要 朋友圈 功能？',
         desc: '类似微信朋友圈',
         checked: false,
-        dependencies: [1],
+        dependencies: [1, 16],
     },
     {
         id: 'ptt',
@@ -213,5 +213,11 @@ export const commercial_products = [
         name: '多人版音视频',
         desc: ' 支持多人音视频通话，不支持会议',
         price: 0.00,
+    },
+    {
+        id: 16,
+        name: '朋友圈 SDK',
+        desc: '支持朋友圈功能',
+        price: 10000.00,
     },
 ]
