@@ -220,4 +220,16 @@ export const commercial_products = [
         desc: '支持朋友圈功能',
         price: 10000.00,
     },
+    {
+        id: 17,
+        name: '朋友圈 SDK',
+        desc: '支持朋友圈功能',
+        price: 10000.00,
+    },
+    {
+        id: 18,
+        name: '朋友圈 SDK',
+        desc: '支持朋友圈功能',
+        price: 10000.00,
+    },
 ]
