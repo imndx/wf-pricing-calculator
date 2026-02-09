@@ -217,7 +217,7 @@ initProductRequirementList()
                     <p v-else class="invalid-price">{{ computedTotalPrice + '.00' }}</p>
                 </div>
                 <div style="padding-top: 10px; display: flex; font-size: 1.2rem; color: red">
-                    <p style="flex: 1">{{ '全部付费组件打包优惠价格：' }}</p>
+                    <p style="flex: 1">{{ '全部付费组件打包优惠价：' }}</p>
                     <p>{{ maxPrice + '.00' }}</p>
                 </div>
                 <p style="padding-top: 50px; text-align: center; font-size: 1.0rem; color: #3f64e4">
