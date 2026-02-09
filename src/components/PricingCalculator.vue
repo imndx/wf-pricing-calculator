@@ -11,6 +11,8 @@ defineProps({
 
 const productRequirementList = ref({})
 
+const maxPrice = 150000
+
 const initProductRequirementList = () => {
     productRequirementList.value = product_requirement_list.map(u => Object.assign({}, u))
     curReqIndex.value = -1
@@ -79,6 +81,9 @@ const checkedProductRequirementList = computed(() => {
     return list;
 })
 
+const computedTotalPrice = computed(() => {
+    return computedCommercialProductList.value.map(p => p.price).reduce((pre, cur, index) => pre + cur, 0)
+})
 
 const computedCommercialProductList = computed(() => {
     let map = new Map()
@@ -208,7 +213,12 @@ initProductRequirementList()
                 <p></p>
                 <div style="padding-top: 10px; display: flex; font-size: 1.2rem">
                     <p style="flex: 1">{{ '合计：' }}</p>
-                    <p>{{ computedCommercialProductList.map(p => p.price).reduce((pre, cur, index) => pre + cur, 0) + '.00' }}</p>
+                    <p v-if="computedTotalPrice <= maxPrice">{{ computedTotalPrice + '.00' }}</p>
+                    <p v-else class="invalid-price">{{ computedTotalPrice + '.00' }}</p>
+                </div>
+                <div style="padding-top: 10px; display: flex; font-size: 1.2rem; color: red">
+                    <p style="flex: 1">{{ '全部付费组件打包优惠价格：' }}</p>
+                    <p>{{ maxPrice + '.00' }}</p>
                 </div>
                 <p style="padding-top: 50px; text-align: center; font-size: 1.0rem; color: #3f64e4">
                     野火IM 提供行业内唯一长达半年的试用服务，快点击 <a style="color: red" target="_blank" href="https://docs.wildfirechat.cn/trial/">链接</a> 申请试用吧
@@ -356,6 +366,10 @@ button {
     border-radius: 4px;
 }
 
+.invalid-price {
+    text-decoration: line-through;
+    color: red;
+}
 
 @media (min-width: 1024px) {
     .greetings {
