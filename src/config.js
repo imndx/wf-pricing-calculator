@@ -121,6 +121,15 @@ export const product_requirement_list = [
         checked: false,
         dependencies: [1],
     },
+	{
+		id: 'speech_to_text',
+		name: '语音转文字服务',
+		title: '是否需要语音转文字功能？',
+		desc: '类似微信将语言消息转换成文字',
+		category: 'feature',
+		checked: false,
+		dependencies: [1, 19],
+	},
 ]
 
 export const commercial_products = [
@@ -232,4 +241,10 @@ export const commercial_products = [
         desc: '支持朋友圈功能',
         price: 10000.00,
     },
+	{
+		id: 19,
+		name: '语音转文字服务',
+		desc: '支持语音转文字',
+		price: 10000.00,
+	},
 ]
