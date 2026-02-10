@@ -220,7 +220,7 @@ initProductRequirementList()
                     <p style="flex: 1">{{ '全部付费组件打包优惠价：' }}</p>
                     <p>{{ maxPrice + '.00' }}</p>
                 </div>
-                <p style="padding-top: 50px; text-align: center; font-size: 1.0rem; color: #3f64e4">
+                <p style="padding-top: 40px; text-align: center; font-size: 1.0rem; color: #3f64e4">
                     野火IM 提供行业内唯一长达半年的试用服务，快点击 <a style="color: red" target="_blank" href="https://docs.wildfirechat.cn/trial/">链接</a> 申请试用吧
                 </p>
             </div>
@@ -356,6 +356,7 @@ button:active {
     justify-self: flex-end;
     display: flex;
     flex-direction: row;
+    margin-top: 10px;
     justify-content: space-around;
 }
 
