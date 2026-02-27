@@ -11,7 +11,7 @@ defineProps({
 
 const productRequirementList = ref({})
 
-const maxPrice = 150000
+const maxPrice = 450000
 
 const initProductRequirementList = () => {
     productRequirementList.value = product_requirement_list.map(u => Object.assign({}, u))
@@ -216,7 +216,7 @@ initProductRequirementList()
                     <p v-if="computedTotalPrice <= maxPrice">{{ computedTotalPrice + '.00' }}</p>
                     <p v-else class="invalid-price">{{ computedTotalPrice + '.00' }}</p>
                 </div>
-                <div style="padding-top: 10px; display: flex; font-size: 1.2rem; color: red">
+                <div v-if="maxPrice < 450000" style="padding-top: 10px; display: flex; font-size: 1.2rem; color: red">
                     <p style="flex: 1">{{ '全部付费组件打包优惠价：' }}</p>
                     <p>{{ maxPrice + '.00' }}</p>
                 </div>
