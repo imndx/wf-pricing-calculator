@@ -96,8 +96,8 @@ export const product_requirement_list = [
         id: 'ptt',
         name: '对讲（非发语音消息）',
         category: 'feature',
-        title: '是否需要支持对讲功能？',
-        desc: '类似对讲机功能，按下抢麦说话，其他端实时播放，不是发送语音消息',
+        title: '是否需要支持 对讲 功能',
+        desc: '特殊需求，不是发送语音消息，绝大多数客户不需要!!！ 类似对讲机功能，按下抢麦说话，其他端实时播放，不是发送语音消息',
         checked: false,
         dependencies: [1, 10],
     },
@@ -191,7 +191,7 @@ export const commercial_products = [
         id: 10,
         name: '对讲 SDK',
         desc: '实现对讲功能',
-        price: 10000.00,
+        price: 29000.00,
     },
     {
         id: 11,
@@ -241,6 +241,12 @@ export const commercial_products = [
         desc: '支持朋友圈功能',
         price: 10000.00,
     },
+	{
+		id: 19,
+		name: '语音转文字服务',
+		desc: '支持语音转文字',
+		price: 10000.00,
+	},
 	{
 		id: 19,
 		name: '语音转文字服务',
