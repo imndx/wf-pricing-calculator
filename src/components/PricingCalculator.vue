@@ -186,7 +186,7 @@ async function copyQuote() {
     <div class="calculator">
         <header class="masthead">
             <h1>野火 IM 报价计算器</h1>
-            <p>勾选你要做的端和功能，右边的报价单跟着一起变。</p>
+            <p>勾选你要做的客户端端和功能，报价单跟着一起变。</p>
         </header>
 
         <div class="layout">
@@ -200,7 +200,7 @@ async function copyQuote() {
                         </div>
                         <div>
                             <dt>不少是免费的</dt>
-                            <dd>社区版 IM 服务、多人版音视频、Android 和 iOS SDK 都是 0 元。</dd>
+                            <dd>社区版 IM 服务、多人版音视频、Android 和 iOS SDK  等都是 0 元。</dd>
                         </div>
                         <div>
                             <dt>有些会带出依赖</dt>
